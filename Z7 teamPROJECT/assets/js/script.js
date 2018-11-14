@@ -153,14 +153,17 @@ function loadJSON(url, callback) {
     newRequest.onreadystatechange = function () {
         if (newRequest.readyState == 4 && newRequest.status == "200") {
             callback(newRequest.responseText);
+            console.log("hla");
         }
     };
+    console.log("tutoka");
     newRequest.send(null);
 }
 
 function loadNamesAndDatesArray() {
     loadJSON('/assets/js/namesanddates.json', function (response) {
         date = new Dates(JSON.parse(response));
+        console.log(date);
         $("#nameDay").innerHTML =  `Meniny dnes má ${displayTodayName()}`;  
     });
 }
